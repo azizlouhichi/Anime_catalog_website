@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Anime{% endblock %}
+
+{% block body %}
+<section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="contact-mf">
+                    <div id="contact" class="box-shadow-full">
+                        <div class="row">
+                            <center><h1>Edit Anime</h1></center>
+
+                            {{ include('admin/_form.html.twig', {'button_label': 'Update'}) }}
+
+                            <a href="{{ path('app_admin_index') }}">back to list</a>
+
+                            {{ include('admin/_delete_form.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

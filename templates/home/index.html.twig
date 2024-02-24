@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+
+
+<!--/ Intro Skew Star /-->
+<div id="home" class="intro route bg-image" style="background-image: url(animes.jpg)">
+  <div class="overlay-itro"></div>
+  <div class="intro-content display-table">
+    <div class="table-cell">
+      <div class="container">
+        <!--<p class="display-6 color-d">Hello, world!</p>-->
+        <h1 class="intro-title mb-4">Bienvenue à WikiAnime</h1>
+        <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Intro Skew End /-->
+
+
+<section id="service" class="services-mf route">
+  <div class="container">
+    <div class="row">
+      {% for category in categorys %}
+      <div class="title-box-2">
+        <h5 class="title-left">
+          {{ category.nom }}
+        </h5>
+      </div>
+
+      {% for anime in animes %}
+      {% if anime.category == category %}
+      <div class="col-md-4">
+        <div class="service-box text-center">
+          <div class="service-ico">
+            <img src="{{asset('uploads/'~anime.photo)}}" style="max-width: 250px;">
+            <!-- Adjust the 'max-width' value as per your requirement -->
+          </div>
+          <div class="service-content">
+            <h2 class="s-title">{{anime.name}}</h2>
+            <p class="s-description text-center" style="word-wrap: break-word;">
+              {{ anime.description|slice(0, 30) }}<br />
+              {{ anime.description|slice(31, 60) }}
+              {% if anime.description|length > 60 %}...{% endif %}
+            </p>
+            <a href="{{ path('app_anime', {'id': anime.id}) }}">See more</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+{% endblock %}

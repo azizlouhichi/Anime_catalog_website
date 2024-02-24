@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Anime{% endblock %}
+{% block css %}<link href="{{asset('css/addanime.css')}}" rel="stylesheet">{% endblock %}
+
+{% block body %}
+<section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="contact-mf">
+                    <div id="contact" class="box-shadow-full">
+                        <div class="row">
+                            <center><h1>Create new Anime</h1></center>
+
+                            {{ include('admin/_form.html.twig') }}
+
+                            <a href="{{ path('app_admin_index') }}">back to list</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

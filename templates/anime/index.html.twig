@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AnimeController!{% endblock %}
+
+{% block body %}
+<div class="intro intro-single route bg-image" style="background-image: url(img/overlay-bg.jpg)">
+  <div class="overlay-mf"></div>
+  <div class="intro-content display-table">
+    <div class="table-cell">
+      <div class="container">
+        <h2 class="intro-title mb-4">{{anime.name}} Details</h2>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<section id="about" class="about-mf sect-pt4 route">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="box-shadow-full">
+          <div class="row">
+            <div class="row">
+              <div class="col-sm-6 col-md-5">
+                <div class="about-img">
+                  <img src="{{asset('uploads/'~anime.photo)}}" class="img-fluid rounded b-shadow-a" alt="">
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-7">
+                <div class="about-info">
+                  <p><span class="title-s">Name : </span>{{anime.name}}<span></span></p>
+                  <p><span class="title-s">Author : </span>{{anime.author}} <span></span></p>
+                  <p><span class="title-s">Season nomber : </span> <span>{{anime.nbSeason}} seasons</span></p>
+                  <p><span class="title-s">Episode nomber : </span> <span>{{anime.nbEpisode}} episodes</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-me pt-4 pt-md-0">
+              <br />
+              <div class="title-box-2">
+                <h5 class="title-left">
+                  À propos
+                </h5>
+              </div>
+              <p class="lead">
+                {{anime.description}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

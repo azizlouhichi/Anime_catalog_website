@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anime index{% endblock %}
+{% block css %}<link href="{{asset('css/listanime.css')}}" rel="stylesheet">{% endblock %}
+
+{% block body %}
+<section id="service" class="services-mf route">
+    <div class="container">
+        <br/><br/><br/><br/><br/>
+    <h1>Anime index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>NbSeason</th>
+                <th>NbEpisode</th>
+                <th>Author</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for anime in animes %}
+            <tr>
+                <td>{{ anime.id }}</td>
+                <td>{{ anime.name }}</td>
+                <td>{{ anime.description }}</td>
+                <td>{{ anime.nbSeason }}</td>
+                <td>{{ anime.nbEpisode }}</td>
+                <td>{{ anime.author }}</td>
+                <td>{{ anime.photo }}</td>
+                <td>
+                    <a href="{{ path('app_admin_show', {'id': anime.id}) }}">show</a>
+                    <a href="{{ path('app_admin_edit', {'id': anime.id}) }}">edit</a>
+                    {{ include('admin/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_new') }}">Create new</a>
+    <a class="nav-link js-scroll" href="{{path('app_category_index')}}">Categories</a>
+    <br/><br/><br/>
+
+    </div>
+</section>
+{% endblock %}

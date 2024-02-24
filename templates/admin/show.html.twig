@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Anime{% endblock %}
+
+{% block body %}
+<section class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="contact-mf">
+                    <div id="contact" class="box-shadow-full">
+                        <div class="row">
+                            <h1>Anime</h1>
+
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>Id</th>
+                                        <td>{{ anime.id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Name</th>
+                                        <td>{{ anime.name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Description</th>
+                                        <td>{{ anime.description }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>NbSeason</th>
+                                        <td>{{ anime.nbSeason }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>NbEpisode</th>
+                                        <td>{{ anime.nbEpisode }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Author</th>
+                                        <td>{{ anime.author }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <td>{{ anime.photo }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <a href="{{ path('app_admin_index') }}">back to list</a>
+
+                            <a href="{{ path('app_admin_edit', {'id': anime.id}) }}">edit</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
